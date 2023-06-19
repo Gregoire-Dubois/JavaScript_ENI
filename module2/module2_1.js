@@ -27,7 +27,4 @@ function chargerContenu()
 
     elImput.setAttribute("value", "une zone de saisie")
     document.getElementById("titre").insertAdjacentElement("afterend", elImput)
-
-
-
 }
