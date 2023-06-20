@@ -4,34 +4,38 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="tp2.js"></script>
+    <script src="tp2.js" defer></script>
     <title>Les savoirs inutiles</title>
 </head>
 <body>
 
-    <form>
+    <form id="form">
         <div>
-            <label for="savoir"> Savoir :</label>
-            <textarea type="text" id="savoir" name="savoir" placeholder="Entrez le savoir à enregistrer"></textarea>
+            <label for="text"> Savoir :</label>
+            <textarea type="text" id="text" name="savoir" placeholder="Entrez le savoir à enregistrer" required></textarea>
         </div>
 
         <div>
-            <label for="auteur"> auteur : </label>
-            <input type="text" id="auteur" name="Auteur" placeholder="Entrez votre nom">
+            <label for="author"> auteur : </label>
+            <input type="text" id="author" name="author" placeholder="Entrez votre nom" required>
         </div>
 
         <div>
-            <label for="datePublication" Date :></label>
-            <input type="date" id="datePublication" name="datePublication">
+            <label for="date" Date :></label>
+            <input type="date" id="date" name="date" required>
         </div>
-
-        <input type="button" id="btnSoumettre" value="Enregistrer" onclick="enregistrer()"/>
+        <button class="submit">Ajouter</button>
 
     </form>
 
-<div id="resultat">
+
+<ol id="list">
+</ol>
 
 </div>
+
+
+
 
 </body>
 </html>
