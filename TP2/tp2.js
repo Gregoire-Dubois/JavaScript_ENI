@@ -30,20 +30,16 @@ form.addEventListener("submit", function (e){
     li.addEventListener("click", function (e){
         console.log(e.currentTarget);
         /*
-        dans le lli on récupère le 1er enfant
+        dans le li on récupère le 1er enfant
          */
         const  text  = e.currentTarget.children[0].innerText
-        confirm("Voulez vous supprimer " + text);
 
         /*
-        si la persnne valide
+         si la personne valide le waring on supprime le dernier enfant saisi
          */
-        /*
-        On récupère le parent pour supprimer l'enfant
-         */
-        e.currentTarget.parentNode.removeChild(e.currentTarget);
-
-
+        if(confirm("Voulez vous supprimer " + text)){
+            e.currentTarget.parentNode.removeChild(e.currentTarget);
+        };
 
     });
 
