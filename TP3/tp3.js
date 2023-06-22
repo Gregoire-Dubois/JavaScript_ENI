@@ -5,6 +5,7 @@ class SavoirInutile {
         this.list = document.getElementById(listId);
         this.initializeForm();
         this.selectOrder();
+
     }
 
     initializeForm() {
@@ -57,18 +58,39 @@ class SavoirInutile {
 
                     console.log(tableauSavoirInutile);
 
+                    let tableauVersInnerText = "";
+
+                    for(let i= 0; i < tableauSavoirInutile.length;i++){
+                        const objet = tableauSavoirInutile[i];
+                        tableauVersInnerText += "date :" + objet.date + " " + "auteur : " + objet.auteur + " " + "article " + objet.savoir +"\n";
+                        console.log(tableauVersInnerText);
+                    }
+                    const elmt = document.getElementById("list");
+                    elmt.innerText = tableauVersInnerText;
+
 
                  } else {
+
                     const compareDates = (a ,b) => {
                         const dateA = new Date(a.date).getTime();
                         const dateB = new Date(b.date).getTime();
                         if(dateA > dateB){return -1}
                         if (dateA < dateB){return 1}
-
                         return 0
                     }
                      tableauSavoirInutile.sort(compareDates);
+
                      console.log(tableauSavoirInutile);
+
+                     let tableauVersInnerText = "";
+
+                     for(let i= 0; i < tableauSavoirInutile.length;i++){
+                         const objet = tableauSavoirInutile[i];
+                         tableauVersInnerText += "date :" + objet.date + " " + "auteur : " + objet.auteur + " " + "article " + objet.savoir +"\n";
+                         console.log(tableauVersInnerText);
+                     }
+                     const elmt = document.getElementById("list");
+                     elmt.innerText = tableauVersInnerText;
 
                  }
              });
