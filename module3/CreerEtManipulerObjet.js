@@ -13,7 +13,7 @@ console.log(sport.nom)
 sport.nombreJoueurs= 2;
 console.log(sport.nombreJoueurs);
 
-// un objet peut contenir des fonction mais c'est pas conseillé
+// un objet peut contenir des fonctions mais c'est pas conseillé
 //this fait ref à l'objet manipulé
 
 let sport2 = {nom : "Badminton", description : "ça vole",

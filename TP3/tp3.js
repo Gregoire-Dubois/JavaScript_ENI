@@ -39,11 +39,14 @@ class SavoirInutile {
 
     }
 
-     selectOrder(){
+    // fonction pour classer les post dans un ordre chronologique ou alphabétique
+    selectOrder(){
          const tableauSavoirInutile = []; // Déplacez la déclaration du tableau ici pour qu'il soit accessible dans toute la méthode.
          const selecteur = document.getElementById("selectOrder");
 
              selecteur.addEventListener("change", (event) => {
+
+                 //classement par ordre alphabétique
 
                  if (event.target.value === "alphabétique") {
 
@@ -56,21 +59,26 @@ class SavoirInutile {
                     }
                     tableauSavoirInutile.sort(compareNoms);
 
-                    console.log(tableauSavoirInutile);
-
                     let tableauVersInnerText = "";
 
                     for(let i= 0; i < tableauSavoirInutile.length;i++){
                         const objet = tableauSavoirInutile[i];
-                        tableauVersInnerText += "date :" + objet.date + " " + "auteur : " + objet.auteur + " " + "article " + objet.savoir +"\n";
-                        console.log(tableauVersInnerText);
+                        tableauVersInnerText += `<li>Date: ${objet.date}, <br> Auteur: ${objet.auteur}, Article: ${objet.savoir}</li>`;
                     }
-                    const elmt = document.getElementById("list");
-                    elmt.innerText = tableauVersInnerText;
+                     const elmt = document.getElementById("list");
+                     elmt.innerHTML = `${tableauVersInnerText}`;
+
+                     elmt.addEventListener("click", (e) => {
+                         const text = e.currentTarget.children[0].innerText;
+                         if (confirm("Voulez-vous supprimer " + text + "?")) {
+                             e.currentTarget.parentNode.removeChild(e.currentTarget);
+                         }
+                     });
 
 
                  } else {
 
+                     // classement par dates
                     const compareDates = (a ,b) => {
                         const dateA = new Date(a.date).getTime();
                         const dateB = new Date(b.date).getTime();
@@ -79,19 +87,23 @@ class SavoirInutile {
                         return 0
                     }
                      tableauSavoirInutile.sort(compareDates);
-
-                     console.log(tableauSavoirInutile);
+                    // console.log(tableauSavoirInutile);
 
                      let tableauVersInnerText = "";
 
                      for(let i= 0; i < tableauSavoirInutile.length;i++){
                          const objet = tableauSavoirInutile[i];
-                         tableauVersInnerText += "date :" + objet.date + " " + "auteur : " + objet.auteur + " " + "article " + objet.savoir +"\n";
-                         console.log(tableauVersInnerText);
+                         tableauVersInnerText += `<li>Date: ${objet.date}, <br> Auteur: ${objet.auteur}, Article: ${objet.savoir}</li>`;
                      }
                      const elmt = document.getElementById("list");
-                     elmt.innerText = tableauVersInnerText;
+                     elmt.innerHTML = `${tableauVersInnerText}`;
 
+                     elmt.addEventListener("click", (e) => {
+                         const text = e.currentTarget.children[0].innerText;
+                         if (confirm("Voulez-vous supprimer " + text + "?")) {
+                             e.currentTarget.parentNode.removeChild(e.currentTarget);
+                         }
+                     });
                  }
              });
 
@@ -106,6 +118,8 @@ class SavoirInutile {
                  console.log(tableauSavoirInutile);
              });
          }
+
+
 }
 // Utilisation de la classe SavoirInutile
 const savoirInutile = new SavoirInutile("form", "list");
