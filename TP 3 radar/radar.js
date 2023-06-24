@@ -54,7 +54,7 @@ class Radar {
             console.log(this.keypress);
 
             // diviser le nombre de pression clavier par le temps en secondes écoulées entre instantNow - instantStart
-            let generalWriteSpeed =  this.keypress / timeToWrite;
+            let generalWriteSpeed =  (this.keypress / timeToWrite)*60;
             console.log("La vitesse moyenne de frappe est de : ", Math.round(generalWriteSpeed));
 
         });
