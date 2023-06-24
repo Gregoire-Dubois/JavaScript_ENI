@@ -9,3 +9,4 @@ function bonjour(qui : string){
 }
 // appel de la fonction
 bonjour("tout le monde");
+
