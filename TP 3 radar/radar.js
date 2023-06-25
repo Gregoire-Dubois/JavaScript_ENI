@@ -1,14 +1,3 @@
-/*
-il faut renvoyer à l'utilisateur ses stat d'écriture.
-
-il faut surveilleur la text area et :
- - définir la vitesse générale d'écriture
-        -> vitesse moyenne depuis que l'utilisateur a commencé à écrire
- - définir la vitesse du dernier intermédiaire
-        -> vitesse d'écriture sur les 5 dernières secondes
- - actualiser les résultats à la fin de chque calcul
- */
-
 class Radar {
     constructor(story) {
         this.textZone = document.getElementById(story);
