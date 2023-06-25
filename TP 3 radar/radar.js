@@ -44,22 +44,20 @@ class Radar {
             let minutes = now.getMinutes();
             let secondes = now.getSeconds();
 
-            //console.log(day, month, year , hour, minutes, secondes);
             let instantNow = new Date(year, month, day, hour, minutes, secondes);
 
             // la différence entre de instantNow et instantStart est en millisecondes
             //convertir la différence entre instantNow - instantStart en secondes
 
             let timeToWrite = (instantNow - instantStart) / 1000;
-            //console.log("le timer est de : ", timeToWrite)
 
             // compter le nombre de pression réalisées sur le clavier
             this.keypress++;
-            //console.log(this.keypress);
 
             // diviser le nombre de pressions clavier par le temps en secondes écoulées entre instantNow - instantStart rapporté à la minute
             let generalWriteSpeed =  (this.keypress / timeToWrite)*60;
-            console.log("La vitesse moyenne de frappe est de : ", Math.round(generalWriteSpeed));
+            let msgOut = "La vitesse moyenne de frappe est de : " + Math.round(generalWriteSpeed) + " lettres par minutes";
+            document.getElementById("vitesseMoyenne").innerText = msgOut;
 
         });
     }
@@ -107,7 +105,8 @@ class Radar {
             // diviser le nombre de pressions clavier par le temps en secondes écoulées entre instantNow - instantStart rapporté à la minute
             let generalWriteSpeed =  (this.keypress / timeToWrite)*60;
             console.log("La vitesse moyenne de frappe est sur une période de 5 secondes est de : ", Math.round(generalWriteSpeed), "lettre par minutes");
-
+            let outAverageMiddle = "La vitesse moyenne de frappe est de : " + Math.round(generalWriteSpeed) + " lettres par minutes";
+            document.getElementById("vitesseIntermediaire").innerText = outAverageMiddle;
         });
 
     }
