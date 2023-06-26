@@ -3,14 +3,17 @@ class Radar {
         this.textZone = document.getElementById(story);
         this.startTime = new Date();
         this.keypress = 0;
-        this.inputUserAvera();
+        this.inputUserAverage();
         this.interval = setInterval(() => {this.inputAverage();}, 5000);
     }
 
     /*
      La vitesse générale est vitesse moyenne depuis que l'utilisateur a commencé à écrire. elle est calculé par minute
      */
-    inputUserAvera() {
+
+
+
+    inputUserAverage() {
         this.textZone.addEventListener("keypress", (e) => {
             console.log(e.key);
 
@@ -47,6 +50,8 @@ class Radar {
             let generalWriteSpeed =  (this.keypress / timeToWrite)*60;
             let msgOut = "La vitesse moyenne de frappe est de : " + Math.round(generalWriteSpeed) + " lettres par minutes";
             document.getElementById("vitesseMoyenne").innerText = msgOut;
+
+
 
         });
     }
