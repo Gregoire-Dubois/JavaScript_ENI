@@ -1,0 +1,13 @@
+<h1>Les directives</h1>
+
+<p>Afficher des informations disponibles dans un tableau d'informations dans un composants</p>
+
+<div *ngIf="informations && informations.length>0" [ngClass]="classesAAppliquer">
+  <ul>
+    <li *ngFor="let info of informations">{{info}}</li>
+  </ul>
+</div>
+
+<div *ngIf="!informations || informations.length==0">
+  <p>Il n'y a pas d'informations à prsenter</p>
+</div>
