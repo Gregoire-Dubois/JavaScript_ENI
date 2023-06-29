@@ -10,15 +10,27 @@ import {GestionInformationsService} from '../services/gestion-informations.servi
 })
 export class DetailComponent implements OnInit {
 
-  information: Information;
+  information!: Information;
   constructor(
         private route: ActivatedRoute,
         private gestionInformations: GestionInformationsService
   ) { }
+
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== null) {
+      this.gestionInformations.getInformation(id)
+        .subscribe(value => this.information = value);
+    }
+  }
+
+}
+/*
 
   ngOnInit() {
     this.gestionInformations.getInformation(this.route.snapshot.paramMap.get('id'))
                             .subscribe(value => this.information = value);
   }
 
-}
+ */

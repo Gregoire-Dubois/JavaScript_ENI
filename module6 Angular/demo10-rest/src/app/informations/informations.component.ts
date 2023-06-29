@@ -9,7 +9,7 @@ import {GestionInformationsService} from '../services/gestion-informations.servi
   styleUrls: ['./informations.component.css']
 })
 export class InformationsComponent implements OnInit {
-  informations: Information[];
+  informations: Information[] = [];
 
   constructor(private gestionInformations: GestionInformationsService) { }
 
